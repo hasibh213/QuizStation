@@ -1,8 +1,10 @@
 import React from "react";
+import "./questiondetails.scss";
 
 const QuestionDetails = ({
   id,
   question,
+  round,
   handleClick,
   optionA,
   aCorrect,
@@ -11,24 +13,27 @@ const QuestionDetails = ({
 }) => {
   return (
     <>
-      <h1 className="question__header">Question {id}</h1>
-      <h2 className="question__subheader">{question}</h2>
-      <div className="question__options">
-        <button
-          onClick={handleClick}
-          value={aCorrect}
-          className="question__answer"
-        >
-          {optionA}
-        </button>
-        <button
-          onClick={handleClick}
-          value={bCorrect}
-          className="question__answer"
-        >
-          {optionB}
-        </button>
-      </div>
+      <article className="details">
+        <h1 className="details__header">Question {id}</h1>
+        <h2 className="details__subheader">Round {round}</h2>
+        <h3 className="details__question">{question}</h3>
+        <div className="details__options">
+          <button
+            onClick={handleClick}
+            value={aCorrect}
+            className="detailsn__answer"
+          >
+            {optionA}
+          </button>
+          <button
+            onClick={handleClick}
+            value={bCorrect}
+            className="details__answer"
+          >
+            {optionB}
+          </button>
+        </div>
+      </article>
     </>
   );
 };

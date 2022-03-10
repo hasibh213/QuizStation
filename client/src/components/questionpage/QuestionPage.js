@@ -12,6 +12,7 @@ const API_QUESTIONS_DETAILS = (id) => `http://localhost:8080/quiz/${id}`;
 class QuestionPage extends Component {
   state = {
     allData: [],
+    round: null,
     number: null,
     question: null,
     optionA: null,
@@ -28,6 +29,7 @@ class QuestionPage extends Component {
     this.setState({
       allData: data,
       number: data[0].id,
+      round: data[0].round,
       question: data[0].question,
       optionA: data[0].options[0].answer,
       aCorrect: data[0].options[0].correct,
@@ -47,6 +49,7 @@ class QuestionPage extends Component {
     const individualData = response.data;
     this.setState({
       number: individualData.id,
+      round: individualData.round,
       question: individualData.question,
       optionA: individualData.options[0].answer,
       aCorrect: individualData.options[0].correct,
@@ -82,31 +85,31 @@ class QuestionPage extends Component {
     return (
       <>
         <section className="question">
-          <article className="question__container">
-            {this.state.allData
-              .filter((question) => {
-                return question.id === this.state.number;
-              })
-              .map((question) => {
-                return (
-                  <Link
-                    className="link"
-                    key={question.id}
-                    to={`/quiz/${question.id}`}
-                  >
-                    <QuestionDetails
-                      id={this.state.number}
-                      question={this.state.question}
-                      handleClick={this.answerHandler}
-                      optionA={this.state.optionA}
-                      aCorrect={this.state.aCorrect}
-                      optionB={this.state.optionB}
-                      bCorrect={this.state.bCorrect}
-                    />
-                  </Link>
-                );
-              })}
-          </article>
+          {this.state.allData
+            .filter((question) => {
+              return question.id === this.state.number;
+            })
+            .map((question) => {
+              return (
+                <Link
+                  className="question__link"
+                  key={question.id}
+                  to={`/quiz/${question.id}`}
+                  disable
+                >
+                  <QuestionDetails
+                    id={this.state.number}
+                    round={this.state.round}
+                    question={this.state.question}
+                    handleClick={this.answerHandler}
+                    optionA={this.state.optionA}
+                    aCorrect={this.state.aCorrect}
+                    optionB={this.state.optionB}
+                    bCorrect={this.state.bCorrect}
+                  />
+                </Link>
+              );
+            })}
         </section>
       </>
     );
