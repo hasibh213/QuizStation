@@ -1,20 +1,212 @@
 [
   {
     "id": "1",
-    "order": 1,
-    "question": "How many fingers do you have?",
+    "round": "1",
+    "question": "Why do we use a markup language?",
     "options": [
-      { "answer": "8", "id": "id", "correct": true },
-      { "answer": "10", "id": "id", "correct": false }
+      {
+        "answer": "Because markup languages are older than markdown languages",
+        "correct": false
+      },
+      {
+        "answer": "To structure our content in a way that a browser can understand",
+        "correct": true
+      }
     ]
   },
   {
     "id": "2",
-    "order": 2,
-    "question": "How many toes do you have?",
+    "round": "1",
+    "question": "Which of the following is a valid markup snippet?",
     "options": [
-      { "answer": "7", "id": "id", "correct": true },
-      { "answer": "12", "id": "id", "correct": false }
+      {
+        "answer": "<greeting text=”hello” type=”enthusiastic”><name my-text=”John”></greeting></name>",
+        "correct": false
+      },
+      {
+        "answer": "<greeting type=”enthusiastic”>hello <name>John</name></greeting>",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "round": "2",
+    "question": "Which snippet of CSS is commonly used to center an element horizontally (without use of Flexbox)?",
+    "options": [
+      {
+        "answer": "margin: 0 auto;",
+        "correct": true
+      },
+      {
+        "answer": "margin: auto 0;",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "round": "2",
+    "question": "Setting an element to 'position: relative' will:",
+    "options": [
+      {
+        "answer": "Position the element relative to its parent",
+        "correct": false
+      },
+      {
+        "answer": "Position the element relative to itself",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "round": "3",
+    "question": "What are the key areas to consider for responsive design?",
+    "options": [
+      {
+        "answer": "Colors, Icons, CSS Libraries, Design Systems",
+        "correct": false
+      },
+      {
+        "answer": "Font Sizes, Flexible Layouts, Images, Media Queries",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "round": "3",
+    "question": "What is the result of the following expression? 123 == '123'?",
+    "options": [
+      {
+        "answer": "False",
+        "correct": false
+      },
+      {
+        "answer": "True",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "round": "4",
+    "question": "Which of the following function is Higher-Order function?",
+    "options": [
+      {
+        "answer": ".map()",
+        "correct": true
+      },
+      {
+        "answer": ".splice()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "round": "4",
+    "question": "Which method will convert JSON into a Javascript Object?",
+    "options": [
+      {
+        "answer": "JSON.parse()",
+        "correct": true
+      },
+      {
+        "answer": "JSON.toString()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "round": "5",
+    "question": "What is the purpose of constructor() function?",
+    "options": [
+      {
+        "answer": "To construct instances or objects from a class",
+        "correct": true
+      },
+      {
+        "answer": "To construct or create a class in Javascript",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "round": "5",
+    "question": "What does CORS stand for?",
+    "options": [
+      {
+        "answer": "Cross-Origin Request Standard",
+        "correct": false
+      },
+      {
+        "answer": "Cross-Origin Resource Sharing",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "round": "6",
+    "question": "How do you notify React when you want to change the state object?",
+    "options": [
+      {
+        "answer": "this.setState()",
+        "correct": true
+      },
+      {
+        "answer": "this.stateSet()",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "round": "6",
+    "question": "Which of the following is the correct syntax for a button click event handler, foo?",
+    "options": [
+      {
+        "answer": "<button onclick={this.foo}>",
+        "correct": false
+      },
+      {
+        "answer": "<button onClick={this.foo}>",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "round": "7",
+    "question": "How does localStorage handle storing information in the browser? ",
+    "options": [
+      {
+        "answer": "Object/Array pairs",
+        "correct": false
+      },
+      {
+        "answer": "Key/Value pairs",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "round": "7",
+    "question": "When should you use class-based components instead of function components in React?",
+    "options": [
+      {
+        "answer": "Only when you need to use state or lifecycle methods",
+        "correct": true
+      },
+      {
+        "answer": "Only when you prefer to use arrow functions for event handlers",
+        "correct": false
+      }
     ]
   }
 ]
