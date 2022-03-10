@@ -1,1 +1,20 @@
-[{ "question": "How many fingers do you have?", "answer": [] }]
+[
+  {
+    "id": "1",
+    "order": 1,
+    "question": "How many fingers do you have?",
+    "options": [
+      { "answer": "8", "id": "id", "correct": true },
+      { "answer": "10", "id": "id", "correct": false }
+    ]
+  },
+  {
+    "id": "2",
+    "order": 2,
+    "question": "How many toes do you have?",
+    "options": [
+      { "answer": "7", "id": "id", "correct": true },
+      { "answer": "12", "id": "id", "correct": false }
+    ]
+  }
+]

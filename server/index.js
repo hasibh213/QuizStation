@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const logger = require("./middleware/logger");
-const studentRouter = require("./routes/students");
+const quizRouter = require("./routes/quiz");
 const cors = require("cors");
 
 //  initialize express for use
@@ -20,9 +20,6 @@ app.get("/", (req, res) => {
 //   res.send(path.join(__dirname, "public", "index.html"));
 // });
 
-//  init middleware
-app.use(logger);
-
 //  body parser
 app.use(express.json());
 
@@ -30,7 +27,7 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 
 //  routes for students
-app.use("/api/students", studentRouter);
+app.use("/quiz", quizRouter);
 
 app.use(express.static(path.join(__dirname, "public")));
 
