@@ -1,68 +1,114 @@
-import React from "react";
+// import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
+import "./questionpage.scss";
+import QuestionDetails from "../questiondetails/QuestionDetails.js";
+import { Link } from "react-router-dom";
 
-let api = "/";
+// API CALL INFORMATION
+const API_QUESTIONS = "http://localhost:8080/quiz";
+const API_QUESTIONS_DETAILS = (id) => `http://localhost:8080/quiz/${id}`;
 
-class QuestionPage extends React.Component {
+class QuestionPage extends Component {
   state = {
-    allVideos: [],
-    chosenVideo: undefined,
-    loading: true,
+    allData: [],
+    number: null,
+    question: null,
+    optionA: null,
+    aCorrect: null,
+    optionB: null,
+    bCorrect: null,
   };
 
-  componentDidMount() {
-    this.loadAllVideos();
-  }
-
-  loadAllVideos = () => {
-    axios.get(api + "videos/").then((response) => {
-      this.setState({ allVideos: response.data });
-      this.setChosenVideoById(response.data[0].id);
+  // FIRST API CALL TO UPDATE DATA IN STATE
+  getStateData = async () => {
+    const response = await axios.get(API_QUESTIONS);
+    const data = response.data;
+    console.log(data);
+    this.setState({
+      allData: data,
+      number: data[0].id,
+      question: data[0].question,
+      optionA: data[0].options[0].answer,
+      aCorrect: data[0].options[0].correct,
+      optionB: data[0].options[1].answer,
+      bCorrect: data[0].options[1].correct,
     });
   };
 
-  setChosenVideoById = (videoId) => {
-    axios.get(api + "videos/" + videoId).then((response) => {
-      this.setState({ loading: true });
-      this.setState({ chosenVideo: response.data, loading: false });
+  componentDidMount() {
+    this.getStateData();
+  }
+
+  // SECOND API CALL TO UPDATE DATA IN STATE IF URL CHANGES
+  updateStateData = async (quesID) => {
+    console.log("get the next question", quesID);
+    const response = await axios.get(API_QUESTIONS_DETAILS(quesID));
+    const individualData = response.data;
+    this.setState({
+      number: individualData.id,
+      question: individualData.question,
+      optionA: individualData.options[0].answer,
+      aCorrect: individualData.options[0].correct,
+      optionB: individualData.options[1].answer,
+      bCorrect: individualData.options[1].correct,
     });
   };
 
   componentDidUpdate(prevProps) {
-    let newVideoId = this.props.match.params.id;
-    if (this.props.match.params.id !== prevProps.match.params.id) {
-      this.setChosenVideoById(newVideoId);
+    if (prevProps.match.params.quesID !== this.props.match.params.quesID) {
+      if (this.props.match.path === "quiz/1") {
+        this.updateStateData(this.state.allData[0].id);
+      } else {
+        this.updateStateData(this.props.match.params.videoID);
+      }
     }
   }
 
-  render() {
-    if (this.state.loading) {
-      return <div>Loading</div>;
+  answerHandler = (event) => {
+    event.preventDefault();
+    let answer = event.target.value;
+    if (answer === "false") {
+      console.log("YOU GOT IT WRONG");
+    } else {
+      console.log("YOU GOT IT RIGHT");
     }
+  };
+
+  render() {
+    // if (this.state.loading) {
+    //   return <div>Loading</div>;
+    // }
     return (
-      <div className="app">
-        <Header></Header>
-        <Hero
-          videos={this.state.allVideos}
-          videodetails={this.state.chosenVideo}
-          specificVideo={this.state.chosenVideo}
-        />
-        <VideoDetails
-          videos={this.state.allVideos}
-          videodetails={this.state.chosenVideo}
-          specificVideo={this.state.chosenVideo}
-        />
-        <CommentDisplay
-          videos={this.state.allVideos}
-          videodetails={this.state.chosenVideo}
-          specificVideo={this.state.chosenVideo}
-        />
-        <OtherVideos
-          videos={this.state.allVideos}
-          videodetails={this.state.chosenVideo}
-          specificVideo={this.state.chosenVideo}
-        />
-      </div>
+      <>
+        <section className="question">
+          <article className="question__container">
+            {this.state.allData
+              .filter((question) => {
+                return question.id === this.state.number;
+              })
+              .map((question) => {
+                return (
+                  <Link
+                    className="link"
+                    key={question.id}
+                    to={`/quiz/${question.id}`}
+                  >
+                    <QuestionDetails
+                      id={this.state.number}
+                      question={this.state.question}
+                      handleClick={this.answerHandler}
+                      optionA={this.state.optionA}
+                      aCorrect={this.state.aCorrect}
+                      optionB={this.state.optionB}
+                      bCorrect={this.state.bCorrect}
+                    />
+                  </Link>
+                );
+              })}
+          </article>
+        </section>
+      </>
     );
   }
 }

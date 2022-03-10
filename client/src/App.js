@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.scss";
+// import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/homepage/HomePage.js";
 import QuestionPage from "./components/questionpage/QuestionPage.js";
