@@ -1,13 +1,14 @@
 const express = require("express");
-const readFile = require("../utils/helper-functions");
 const router = express.Router();
+const readFile = require("../utils/helper-functions");
+// const file = require("../data/data.json");
 
-router.get("/", (res, req) => {
+router.get("/", (req, res) => {
   const data = readFile("./data/data.json");
   res.status(200).json(data);
 });
 
-router.get("/:id", (res, req) => {
+router.get("/:id", (req, res) => {
   const data = readFile("./data/data.json");
   const id = req.params.id;
   const currQues = data.find((ques) => ques.id == id);
