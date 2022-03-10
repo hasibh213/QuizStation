@@ -1,36 +1,11 @@
-require("dotenv").config();
-const express = require("express");
-const path = require("path");
-const logger = require("./middleware/logger");
-const quizRouter = require("./routes/quiz");
+// require("dotenv").config();
 const cors = require("cors");
-
-//  initialize express for use
+const express = require("express");
 const app = express();
+const quizRouter = require("./routes/quiz");
+const PORT = 8080;
 
-// cors
-app.use(cors());
-
-//  routes
-app.get("/", (req, res) => {
-  res.send("<h1>Hello World :) :)</h1>");
-});
-
-// app.get("/", (req, res) => {
-//   res.send(path.join(__dirname, "public", "index.html"));
-// });
-
-//  body parser
 app.use(express.json());
-
-//  for form submission with post
-// app.use(express.urlencoded({ extended: false }));
-
-//  routes for students
+app.use(cors());
 app.use("/quiz", quizRouter);
-
-app.use(express.static(path.join(__dirname, "public")));
-
-const PORT = process.env.PORT || 5500;
-
 app.listen(PORT, () => console.log(`server started on port ${PORT}`));
