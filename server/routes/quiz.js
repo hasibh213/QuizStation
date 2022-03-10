@@ -1,23 +1,17 @@
-const router = require("express").Router();
-const studentsController = require("../controllers/studentsController");
+const express = require("express");
+const readFile = require("../utils/helper-functions");
+const router = express.Router();
 
-//  Get all students
-router.get("/", studentsController.listStudents);
+router.get("/", (res, req) => {
+  const data = readFile("./data/data.json");
+  res.status(200).json(data);
+});
 
-//  Get student with :id
-// req.params.id -> when url is /api/students/123
-// req.params.id
-// req.query.id -> when url has ? in it.
-// e.g /students?sort=desc&color=blue -> req.query.sort, req.query.color
-// req.body.id -> data is coming from post request
-router.get("/:id", studentsController.getStudentById);
-
-//  Create new Student
-router.post("/", studentsController.addStudent);
-
-// update student with :id
-router.patch("/:id", studentsController.updateStudentById);
-
-router.delete("/:id", studentsController.deleteStudentById);
+router.get("/:id", (res, req) => {
+  const data = readFile("./data/data.json");
+  const id = req.params.id;
+  const currQues = data.find((ques) => ques.id == id);
+  res.status(200).json(currQues);
+});
 
 module.exports = router;
