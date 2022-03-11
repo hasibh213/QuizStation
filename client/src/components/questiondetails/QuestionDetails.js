@@ -21,7 +21,7 @@ const QuestionDetails = ({
           <button
             onClick={handleClick}
             value={aCorrect}
-            className="detailsn__answer"
+            className="details__answer"
           >
             {optionA}
           </button>
