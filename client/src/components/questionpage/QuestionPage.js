@@ -60,11 +60,12 @@ class QuestionPage extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.match.params.quesID !== this.props.match.params.quesID) {
-      if (this.props.match.path === "quiz/1") {
+    console.log(prevProps);
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      if (this.props.match.path === "question/1") {
         this.updateStateData(this.state.allData[0].id);
       } else {
-        this.updateStateData(this.props.match.params.videoID);
+        this.updateStateData(this.props.match.params.id);
       }
     }
   }
@@ -76,7 +77,9 @@ class QuestionPage extends Component {
       console.log("YOU GOT IT WRONG");
     } else {
       console.log("YOU GOT IT RIGHT");
-      this.props.history.push("/2");
+      this.props.history.push(
+        `${parseInt(this.props.match.params.id * 1 + 1)}`
+      );
     }
   };
 
@@ -96,7 +99,7 @@ class QuestionPage extends Component {
                 <Link
                   className="question__link"
                   key={question.id}
-                  to={`/quiz/${question.id}`}
+                  to={`/question/${question.id}`}
                   disable
                 >
                   <QuestionDetails
