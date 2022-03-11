@@ -142,7 +142,7 @@ class QuestionPage extends Component {
               );
             })}
           <article className="question__avatars">
-            <img src={student} alt="" />
+            <img className="question__student" src={student} alt="" />
             {/* <img src={joe} alt="" /> */}
           </article>
         </section>

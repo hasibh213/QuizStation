@@ -37,8 +37,11 @@
 .closingpage__button {
   position: absolute;
   margin-top: 1rem;
-  right: 10%;
+  right: 5%;
   bottom: 5%;
+  font-family: inherit;
+  border: 2px solid #00bfb6;
+  border-radius: 4px;
 }
 
 .closingpage__button-text {
