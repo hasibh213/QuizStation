@@ -6,11 +6,11 @@
     "options": [
       {
         "answer": "Because markup languages are older than markdown languages",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "To structure our content in a way that a browser can understand",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -21,11 +21,11 @@
     "options": [
       {
         "answer": "<greeting text=”hello” type=”enthusiastic”><name my-text=”John”></greeting></name>",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "<greeting type=”enthusiastic”>hello <name>John</name></greeting>",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -36,11 +36,11 @@
     "options": [
       {
         "answer": "margin: 0 auto;",
-        "correct": true
+        "correct": "true"
       },
       {
         "answer": "margin: auto 0;",
-        "correct": false
+        "correct": "false"
       }
     ]
   },
@@ -51,11 +51,11 @@
     "options": [
       {
         "answer": "Position the element relative to its parent",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "Position the element relative to itself",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -66,11 +66,11 @@
     "options": [
       {
         "answer": "Colors, Icons, CSS Libraries, Design Systems",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "Font Sizes, Flexible Layouts, Images, Media Queries",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -81,11 +81,11 @@
     "options": [
       {
         "answer": "False",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "True",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -96,11 +96,11 @@
     "options": [
       {
         "answer": ".map()",
-        "correct": true
+        "correct": "true"
       },
       {
         "answer": ".splice()",
-        "correct": false
+        "correct": "false"
       }
     ]
   },
@@ -111,11 +111,11 @@
     "options": [
       {
         "answer": "JSON.parse()",
-        "correct": true
+        "correct": "true"
       },
       {
         "answer": "JSON.toString()",
-        "correct": false
+        "correct": "false"
       }
     ]
   },
@@ -126,11 +126,11 @@
     "options": [
       {
         "answer": "To construct instances or objects from a class",
-        "correct": true
+        "correct": "true"
       },
       {
         "answer": "To construct or create a class in Javascript",
-        "correct": false
+        "correct": "false"
       }
     ]
   },
@@ -141,11 +141,11 @@
     "options": [
       {
         "answer": "Cross-Origin Request Standard",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "Cross-Origin Resource Sharing",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -156,11 +156,11 @@
     "options": [
       {
         "answer": "this.setState()",
-        "correct": true
+        "correct": "true"
       },
       {
         "answer": "this.stateSet()",
-        "correct": false
+        "correct": "false"
       }
     ]
   },
@@ -171,11 +171,11 @@
     "options": [
       {
         "answer": "<button onclick={this.foo}>",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "<button onClick={this.foo}>",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -186,11 +186,11 @@
     "options": [
       {
         "answer": "Object/Array pairs",
-        "correct": false
+        "correct": "false"
       },
       {
         "answer": "Key/Value pairs",
-        "correct": true
+        "correct": "true"
       }
     ]
   },
@@ -201,11 +201,11 @@
     "options": [
       {
         "answer": "Only when you need to use state or lifecycle methods",
-        "correct": true
+        "correct": "true"
       },
       {
         "answer": "Only when you prefer to use arrow functions for event handlers",
-        "correct": false
+        "correct": "false"
       }
     ]
   }
