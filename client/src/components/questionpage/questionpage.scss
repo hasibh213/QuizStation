@@ -20,3 +20,15 @@
     }
   }
 }
+
+.question__avatars {
+  position: relative,
+}
+
+.question__student {
+  position: absolute;
+  height: 600px;
+  width: 800px;
+  right: 350px;
+  bottom: 1px;
+}
