@@ -77,9 +77,12 @@ class QuestionPage extends Component {
       console.log("YOU GOT IT WRONG");
     } else {
       console.log("YOU GOT IT RIGHT");
-      this.props.history.push(
-        `${parseInt(this.props.match.params.id * 1 + 1)}`
-      );
+      const location = this.props.match.params.id;
+      if (location >= 14) {
+        this.props.history.push("/closing");
+      } else {
+        this.props.history.push(`${parseInt(location * 1 + 1)}`);
+      }
     }
   };
 
