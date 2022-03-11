@@ -4,7 +4,13 @@ import axios from "axios";
 import "./questionpage.scss";
 import QuestionDetails from "../questiondetails/QuestionDetails.js";
 import { Link } from "react-router-dom";
-// import { Redirect } from "react-router-dom";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import correctSound from "../../assets/sound/correct.mp3";
+import wrongSound from "../../assets/sound/wrong.mp3";
+import student from "../../assets/svg/student.svg";
+// import joe from "../../assets/svg/hombre.svg";
+
+import "sweetalert2/src/sweetalert2.scss";
 
 // API CALL INFORMATION
 const API_QUESTIONS = "http://localhost:8080/quiz";
@@ -70,10 +76,20 @@ class QuestionPage extends Component {
     }
   }
 
+  correctAudio = new Audio(correctSound);
+  wrongAudio = new Audio(wrongSound);
+
   answerHandler = (event) => {
     event.preventDefault();
     let answer = event.target.value;
     if (answer === "false") {
+      this.wrongAudio.play();
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "That's the wrong answer!!",
+        footer: "<p>Give it another try</p>",
+      });
       console.log("YOU GOT IT WRONG");
     } else {
       console.log("YOU GOT IT RIGHT");
@@ -82,6 +98,13 @@ class QuestionPage extends Component {
         this.props.history.push("/closing");
       } else {
         this.props.history.push(`${parseInt(location * 1 + 1)}`);
+        this.correctAudio.play();
+        Swal.fire({
+          icon: "success",
+          title: "HURRAY!",
+          text: "That's the correct answer!!",
+          footer: "<p>Proceed to the next question</p>",
+        });
       }
     }
   };
@@ -118,6 +141,10 @@ class QuestionPage extends Component {
                 </Link>
               );
             })}
+          <article className="question__avatars">
+            <img src={student} alt="" />
+            {/* <img src={joe} alt="" /> */}
+          </article>
         </section>
       </>
     );
