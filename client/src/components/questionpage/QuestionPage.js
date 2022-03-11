@@ -78,7 +78,7 @@ class QuestionPage extends Component {
     } else {
       console.log("YOU GOT IT RIGHT");
       const location = this.props.match.params.id;
-      if (location >= 14) {
+      if (location >= 18) {
         this.props.history.push("/closing");
       } else {
         this.props.history.push(`${parseInt(location * 1 + 1)}`);
