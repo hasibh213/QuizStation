@@ -1,0 +1,49 @@
+.closingpage {
+  background-image: url("../assets/hasib-images/closing\ page\ background.jpg");
+  background-repeat: center;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.closingpage__header {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.closingpage__speechbox {
+  position: absolute;
+  left: 20%;
+  bottom: 10%;
+
+  width: 60rem;
+  margin: 1.5rem auto;
+  background: #00bfb6;
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.closingpage__button {
+  position: absolute;
+  margin-top: 1rem;
+  right: 10%;
+  bottom: 5%;
+}
+
+.closingpage__button-text {
+  font-size: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: bold;
+}

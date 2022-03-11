@@ -5,11 +5,6 @@ import "./homepage.scss";
 function Homepage() {
   return (
     <div className="homepage">
-      {/* <img
-        className="homepage__background"
-        src={londonbackground}
-        alt="london"
-      /> */}
       <h1 className="homepage__title">WELCOME TO QUIZSTATION</h1>
       <div className="homepage__footer">
         <h2 className="homepage__speechbox sb2">
