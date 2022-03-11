@@ -4,6 +4,7 @@ import axios from "axios";
 import "./questionpage.scss";
 import QuestionDetails from "../questiondetails/QuestionDetails.js";
 import { Link } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 // API CALL INFORMATION
 const API_QUESTIONS = "http://localhost:8080/quiz";
@@ -75,6 +76,7 @@ class QuestionPage extends Component {
       console.log("YOU GOT IT WRONG");
     } else {
       console.log("YOU GOT IT RIGHT");
+      this.props.history.push("/2");
     }
   };
 
